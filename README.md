@@ -26,3 +26,5 @@ To where you define the shortcuts to handle volume.
 ```bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status && pkill -SIGRTMIN+10 i3blocks```
 
 Above will send the signal 10 to i3blocks whenever you lower the volume, which will refresh the output on your bar.
+
+If you add the lines in volume_control_buttons.txt to your i3blocks config, you'll have two buttons to increase and decrease the audio, which also send the needed signal to the volume level block that updates it.
