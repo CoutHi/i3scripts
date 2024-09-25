@@ -14,8 +14,10 @@ interval=once
 signal=10
 ```
 
-To make i3volume do change with the volume, you'd append the line:
-```&& pkill -SIGRTMIN+10 i3blocks```
+To make i3volume change with the volume, you'd append the line:
+```
+&& pkill -SIGRTMIN+10 i3blocks
+```
 
 To where you define the shortcuts to handle volume.
 
