@@ -15,7 +15,12 @@ func main(){
     if err != nil {
         collection.artist = ""
     }else {
-        collection.artist = strings.TrimSpace(string(output))
+        artistStr := strings.TrimSpace(string(output))
+        if len(artistStr) > 15 {
+            collection.artist = artistStr[:15]+"..."
+        }else {
+            collection.artist = artistStr
+        }
     }
 
 
@@ -24,7 +29,12 @@ func main(){
     if err != nil {
         collection.album = ""
     }else {
-        collection.album = strings.TrimSpace(string(output))
+        albumStr := strings.TrimSpace(string(output))
+        if len(albumStr) > 15 {
+            collection.album = albumStr[:15]+"..."
+        }else {
+            collection.album = albumStr
+        }
     }
 
     title := exec.Command("sh", "-c", "playerctl metadata title")
@@ -32,7 +42,12 @@ func main(){
     if err != nil {
         collection.title = ""
     }else {
-        collection.title = strings.TrimSpace(string(output))
+        titleStr := strings.TrimSpace(string(output))
+        if len(titleStr) > 15 {
+            collection.title = titleStr[:15]+"..."
+        }else {
+            collection.title = titleStr
+        }
     }
 
     if collection.album == "" && collection.title == "" && collection.artist == "" {
